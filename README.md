@@ -172,6 +172,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## Author
 
 Riley Harper  
-Duke University  
-DATA 890: Advanced Topics in Data Science
-
+DATA 890: Graphs for Machine Learning
