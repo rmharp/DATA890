@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large files (keep in Git LFS or exclude)
+*.mp4
+*.avi
+*.mov
+
+# Model checkpoints (too large)
+*.ckpt
+*.h5
+*.hdf5
+*.pkl
+*.p
+
+# Keypoint-MoSeq reference package (not needed in repo)
+packages/
+
+# Background materials (assignments, lectures)
+background/
+
+# Presentation source (keep PDF only)
+presentation/main.tex
+presentation/*.aux
+presentation/*.log
+presentation/*.out
+presentation/*.toc
+presentation/*.nav
+presentation/*.snm
+presentation/*.vrb
+
+# Temporary files
+*.tmp
+*.temp
+

@@ -1,0 +1,193 @@
+
+
+#==================== ANATOMY =====================#
+
+# used to access columns in the keypoint data
+bodyparts:
+- A1_head
+- A1_thorax
+- A1_abdomen
+- A1_wingL
+- A1_wingR
+- A1_forelegL4
+- A1_forelegR4
+- A1_midlegL4
+- A1_midlegR4
+- A1_hindlegL4
+- A1_hindlegR4
+- A1_eyeL
+- A1_eyeR
+- A2_head
+- A2_thorax
+- A2_abdomen
+- A2_wingL
+- A2_wingR
+- A2_forelegL4
+- A2_forelegR4
+- A2_midlegL4
+- A2_midlegR4
+- A2_hindlegL4
+- A2_hindlegR4
+- A2_eyeL
+- A2_eyeR
+
+# determines the subset of bodyparts to use for modeling and the order in which they are represented
+use_bodyparts:
+- A1_head
+- A1_thorax
+- A1_abdomen
+- A1_wingL
+- A1_wingR
+- A1_forelegL4
+- A1_forelegR4
+- A1_midlegL4
+- A1_midlegR4
+- A1_hindlegL4
+- A1_hindlegR4
+- A1_eyeL
+- A1_eyeR
+- A2_head
+- A2_thorax
+- A2_abdomen
+- A2_wingL
+- A2_wingR
+- A2_forelegL4
+- A2_forelegR4
+- A2_midlegL4
+- A2_midlegR4
+- A2_hindlegL4
+- A2_hindlegR4
+- A2_eyeL
+- A2_eyeR
+
+# used for visualization only
+skeleton:
+- - A1_head
+  - A1_eyeL
+- - A1_head
+  - A1_eyeR
+- - A1_head
+  - A1_thorax
+- - A1_thorax
+  - A1_abdomen
+- - A1_thorax
+  - A1_wingL
+- - A1_thorax
+  - A1_wingR
+- - A1_thorax
+  - A1_forelegL4
+- - A1_thorax
+  - A1_forelegR4
+- - A1_thorax
+  - A1_midlegL4
+- - A1_thorax
+  - A1_midlegR4
+- - A1_thorax
+  - A1_hindlegL4
+- - A1_thorax
+  - A1_hindlegR4
+- - A2_head
+  - A2_eyeL
+- - A2_head
+  - A2_eyeR
+- - A2_head
+  - A2_thorax
+- - A2_thorax
+  - A2_abdomen
+- - A2_thorax
+  - A2_wingL
+- - A2_thorax
+  - A2_wingR
+- - A2_thorax
+  - A2_forelegL4
+- - A2_thorax
+  - A2_forelegR4
+- - A2_thorax
+  - A2_midlegL4
+- - A2_thorax
+  - A2_midlegR4
+- - A2_thorax
+  - A2_hindlegL4
+- - A2_thorax
+  - A2_hindlegR4
+
+# used to initialize heading
+anterior_bodyparts:
+- A1_thorax
+
+# used to initialize heading
+posterior_bodyparts:
+- A1_abdomen
+
+
+#==================== FITTING =====================#
+
+# upper bound of uniform noise added to the data during initial AR-HMM fitting; this is used to regularize the model
+added_noise_level: 0.1
+
+# number of frames used to fit the PCA model during initialization
+PCA_fitting_num_frames: 1000000
+
+# used to define outliers for interpolation when the model is initialized
+conf_threshold: 0.5
+
+
+#================== HYPER PARAMS ==================#
+
+# parameters to convert neural net likelihoods to error size priors
+error_estimator:
+  intercept: 0.25
+  slope: -0.5
+
+# keypoint observation hyperparameters
+obs_hypparams:
+  nu_s: 5
+  nu_sigma: 100000.0
+  sigmasq_0: 0.1
+  sigmasq_C: 0.1
+
+# autoregressive hyperparameters
+ar_hypparams:
+  K_0_scale: 10.0
+  S_0_scale: 0.01
+  latent_dim: 10
+  nlags: 3
+
+# transition hyperparameters
+trans_hypparams:
+  alpha: 5.7
+  gamma: 1000.0
+  kappa: 1000000.0
+  num_states: 100
+
+# centroid movement hyperparameters
+cen_hypparams:
+  sigmasq_loc: 0.5
+
+
+#===================== OTHER ======================#
+
+# suffix used to match videos to recording names; this can usually be left empty (see `util.find_matching_videos` for details)
+recording_name_suffix: ''
+
+# whether to print progress messages during fitting
+verbose: false
+
+# pseudocount used regularize neural network confidences
+conf_pseudocount: 0.001
+
+# directory with videos from which keypoints were derived (used for crowd movies)
+video_dir: ''
+
+# colormap used for visualization; see `matplotlib.cm.get_cmap` for options
+keypoint_colormap: autumn
+
+# whether to whiten principal components; used to initialize the latent pose trajectory `x`
+whiten: true
+
+# whether to keep the heading angle fixed; this should only be True if the pose is constrained to a narrow range of angles, e.g. a headfixed mouse.
+fix_heading: false
+
+# frames per second of the video recordings
+fps: 30
+outlier_scale_factor: 6.0
