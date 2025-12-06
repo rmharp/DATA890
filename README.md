@@ -1,4 +1,4 @@
-# Graph-Theoretic Analysis of Multi-Animal Social Behavior
+# Unsupervised Quantification of Social Behavior
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
 [![SLEAP](https://img.shields.io/badge/SLEAP-1.3+-green.svg)](https://sleap.ai)
