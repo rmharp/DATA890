@@ -163,7 +163,6 @@ def von_neumann_entropy(G):
 
 - Pereira, T.D., et al. (2022). *SLEAP: A deep learning system for multi-animal pose tracking*. Nature Methods.
 - Weinreb, C., et al. (2024). *Keypoint-MoSeq: parsing behavior by linking point tracking to pose dynamics*. Nature Methods.
-- Sizemore, A.E., et al. (2018). *The importance of the whole: Topological data analysis for the network neuroscientist*. Network Neuroscience.
 
 ## License
 
